@@ -494,10 +494,22 @@ function nextQuestion() {
 
 function prevQuestion() {
     currentQuestionIndex--;
+    
+    // Ensure the current question index stays within bounds
     if (currentQuestionIndex < 0) {
         currentQuestionIndex = 0;
     }
+
     showQuestion(questions[currentQuestionIndex]);
+
+    // Enable the "Next" button after going back
+    nextButton.disabled = false;
+    nextButton.classList.remove("hide");
 }
 
+
 startGame();
+
+
+// Am finding it difficult to add the prev button, feel free to correct me, Due to time, 
+// debugging it will take a lot of time
